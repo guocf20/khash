@@ -1,0 +1,19 @@
+已知道问题:
+(1)key 值需要小于value,否则获取的BUFF存在残留
+(2)不支持动态调整
+(3)代码没有做异常处理
+
+编译：
+(1)ko需要把header 路径替换一下，我这个电脑的uname -r的路径的header没有，临时替换的
+(2)userspace  ./build.sh build
+
+测试用例
+insmod test.ko 无死机
+./get "guo"    查询失败
+./set "guo:1989" 设置成功
+./get "guo"   输出1989
+./set "ye:ss" 设置成功
+./get "ye"  输出ss
+rmmod test 无死机
+
+
